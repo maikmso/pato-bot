@@ -10,6 +10,8 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.EnumSet;
+
 @Configuration
 public class DiscordConfig {
 
@@ -19,7 +21,7 @@ public class DiscordConfig {
         if (props.token() == null || props.token().isBlank()) {
             throw new IllegalStateException("Defina a variável de ambiente DISCORD_TOKEN");
         }
-        return JDABuilder.createLight(props.token(), GatewayIntent.GUILDS)
+        return JDABuilder.createLight(props.token(), EnumSet.noneOf(GatewayIntent.class))
                 .setMemberCachePolicy(MemberCachePolicy.NONE)
                 .disableCache(CacheFlag.VOICE_STATE, CacheFlag.EMOJI, CacheFlag.STICKER, CacheFlag.SCHEDULED_EVENTS)
                 .setActivity(Activity.watching("a loja 🍎"))
