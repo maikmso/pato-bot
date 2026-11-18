@@ -1,0 +1,42 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: pato-bot
+  datasource:
+    # Neon: jdbc:postgresql://<host>/<banco>?sslmode=require
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+bot:
+  # Token do bot (Discord Developer Portal -> Bot -> Reset Token). NUNCA coloque no código.
+  token: ${DISCORD_TOKEN}
+  # ID do servidor PATO BLOX FRUITS
+  guild-id: ${DISCORD_GUILD_ID:1495633332887883936}
+  # Seu ID de usuário no Discord (recebe a menção quando um pagamento cai). Opcional.
+  owner-id: ${DISCORD_OWNER_ID:}
+  # Canal #entregas-feitas (opcional)
+  delivered-channel-id: ${DISCORD_DELIVERED_CHANNEL_ID:}
+  # Canal #avaliações (opcional, só para o link na mensagem final)
+  reviews-channel-id: ${DISCORD_REVIEWS_CHANNEL_ID:}
+  # Canal de log da staff, ex: #moderator-only (opcional)
+  log-channel-id: ${DISCORD_LOG_CHANNEL_ID:}
+  ticket-category-name: "🎫 TICKETS"
+  # Tempo para o cliente pagar o PIX antes do pedido ser cancelado
+  order-expiration-minutes: ${ORDER_EXPIRATION_MINUTES:30}
+
+amplopay:
+  base-url: https://app.amplopay.com/api/v1
+  # Painel AmploPay -> Integrações -> API -> credencial
+  public-key: ${AMPLOPAY_PUBLIC_KEY}
+  secret-key: ${AMPLOPAY_SECRET_KEY}
+  # URL pública do bot + /webhooks/amplopay  (ex: https://pato-bot.onrender.com/webhooks/amplopay)
+  callback-url: ${AMPLOPAY_CALLBACK_URL}
