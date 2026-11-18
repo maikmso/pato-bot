@@ -22,13 +22,13 @@ bot:
   # ID do servidor PATO BLOX FRUITS
   guild-id: ${DISCORD_GUILD_ID:1495633332887883936}
   # Seu ID de usuário no Discord (recebe a menção quando um pagamento cai). Opcional.
-  owner-id: ${DISCORD_OWNER_ID:}
+  owner-id: ${DISCORD_OWNER_ID:1286418103420325982}
   # Canal #entregas-feitas (opcional)
-  delivered-channel-id: ${DISCORD_DELIVERED_CHANNEL_ID:}
+  delivered-channel-id: ${DISCORD_DELIVERED_CHANNEL_ID:1572430521785651343}
   # Canal #avaliações (opcional, só para o link na mensagem final)
-  reviews-channel-id: ${DISCORD_REVIEWS_CHANNEL_ID:}
+  reviews-channel-id: ${DISCORD_REVIEWS_CHANNEL_ID:1572430498364395662}
   # Canal de log da staff, ex: #moderator-only (opcional)
-  log-channel-id: ${DISCORD_LOG_CHANNEL_ID:}
+  log-channel-id: ${DISCORD_LOG_CHANNEL_ID:1572429517379608729}
   ticket-category-name: "🎫 TICKETS"
   # Tempo para o cliente pagar o PIX antes do pedido ser cancelado
   order-expiration-minutes: ${ORDER_EXPIRATION_MINUTES:30}
@@ -39,4 +39,4 @@ amplopay:
   public-key: ${AMPLOPAY_PUBLIC_KEY}
   secret-key: ${AMPLOPAY_SECRET_KEY}
   # URL pública do bot + /webhooks/amplopay  (ex: https://pato-bot.onrender.com/webhooks/amplopay)
-  callback-url: ${AMPLOPAY_CALLBACK_URL}
+  callback-url: ${AMPLOPAY_CALLBACK_URL:https://pato-bot.onrender.com/webhooks/amplopay}
